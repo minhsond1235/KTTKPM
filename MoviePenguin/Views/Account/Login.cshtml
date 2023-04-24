@@ -1,0 +1,61 @@
+﻿@using MoviePenguin.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+
+
+<main aria-labelledby="title">
+    <br />
+    <br />
+    <div class="content" style="margin-left:400px">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <br />
+                <div class="form-horizontal">
+                    <h2>ĐĂNG NHẬP</h2>
+
+                    <hr />
+
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Đăng Nhập" class="btn btn-default" />
+                            <br>
+                            Chưa có tài khoản? <a>@Html.ActionLink("Đăng Ký", "Register")</a>
+                            <br />
+                            <a href="#">Quên mật khẩu?</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+  
+
+
+</main>
+
