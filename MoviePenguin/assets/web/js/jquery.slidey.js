@@ -159,6 +159,7 @@
         };
         base.slidePrevious = function() {
             base.gotoSlide(base.activeSlideIndex - 1);
+            
         };
         base.gotoSlide = function(slideIndex) {
             if (slideIndex < 0) {

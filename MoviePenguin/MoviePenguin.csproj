@@ -199,6 +199,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\TestDBContext.cs" />
     <Compile Include="Models\MovieDBContext.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Slide.cs" />
@@ -243,22 +244,6 @@
     <Content Include="assets\admin\fonts\poppins\poppins-v5-latin-900italic.svg" />
     <Content Include="assets\admin\fonts\poppins\poppins-v5-latin-italic.svg" />
     <Content Include="assets\admin\fonts\poppins\poppins-v5-latin-regular.svg" />
-    <Content Include="assets\admin\images\bg-title-01.jpg" />
-    <Content Include="assets\admin\images\bg-title-02.jpg" />
-    <Content Include="assets\admin\images\c6.jpg" />
-    <Content Include="assets\admin\images\h9.jpg" />
-    <Content Include="assets\admin\images\icon\avatar-01.jpg" />
-    <Content Include="assets\admin\images\icon\avatar-02.jpg" />
-    <Content Include="assets\admin\images\icon\avatar-03.jpg" />
-    <Content Include="assets\admin\images\icon\avatar-04.jpg" />
-    <Content Include="assets\admin\images\icon\avatar-05.jpg" />
-    <Content Include="assets\admin\images\icon\avatar-06.jpg" />
-    <Content Include="assets\admin\images\icon\avatar-big-01.jpg" />
-    <Content Include="assets\admin\images\icon\logo-blue.png" />
-    <Content Include="assets\admin\images\icon\logo-mini.png" />
-    <Content Include="assets\admin\images\icon\logo-white.png" />
-    <Content Include="assets\admin\images\icon\logo.png" />
-    <Content Include="assets\admin\images\icon\Untitled-1.jpg" />
     <Content Include="assets\admin\js\bootpag.min.js" />
     <Content Include="assets\admin\js\bs_pagination.min.js" />
     <Content Include="assets\admin\js\components_modals.js" />
@@ -1342,22 +1327,25 @@
     <Content Include="assets\web\css\style.css" />
     <Content Include="assets\web\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\web\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="assets\web\images\avatar.jpg" />
-    <Content Include="assets\web\images\avengerseg.jpg" />
+    <Content Include="assets\web\images\200121hangsondoong-1684840858-6568-2860-1684841427.jpg" />
+    <Content Include="assets\web\images\background-pg.jpg" />
     <Content Include="assets\web\images\cread3.jpg" />
-    <Content Include="assets\web\images\culao.jpg" />
-    <Content Include="assets\web\images\godfather.jpg" />
+    <Content Include="assets\web\images\cta-bg.jpg" />
+    <Content Include="assets\web\images\doramon-pg.jpg" />
+    <Content Include="assets\web\images\et00343051-qbwvjqljye-landscape.jpg" />
+    <Content Include="assets\web\images\footer-bg.jpg" />
+    <Content Include="assets\web\images\hero-bg.jpg" />
     <Content Include="assets\web\images\img-sp.png" />
     <Content Include="assets\web\images\it.jpg" />
-    <Content Include="assets\web\images\john.jpg" />
     <Content Include="assets\web\images\john2.jpg" />
-    <Content Include="assets\web\images\jujutsu.jpg" />
-    <Content Include="assets\web\images\kynghichetcuoi.jpg" />
-    <Content Include="assets\web\images\peaky.jpg" />
+    <Content Include="assets\web\images\logo.jpg.png" />
+    <Content Include="assets\web\images\minion-pg.jpg" />
     <Content Include="assets\web\images\play-button.png" />
+    <Content Include="assets\web\images\service-bg.jpg" />
     <Content Include="assets\web\images\suzume.jpg" />
     <Content Include="assets\web\images\tcs.jpg" />
-    <Content Include="assets\web\images\Titanic.jpg" />
+    <Content Include="assets\web\images\top-rated-bg.jpg" />
+    <Content Include="assets\web\images\tv-series-bg.jpg" />
     <Content Include="assets\web\js\bootstrap.min.js" />
     <Content Include="assets\web\js\controller\contactController.js" />
     <Content Include="assets\web\js\easing.js" />
@@ -1367,6 +1355,7 @@
     <Content Include="assets\web\js\jquery.flexslider.js" />
     <Content Include="assets\web\js\jquery.magnific-popup.js" />
     <Content Include="assets\web\js\jquery.slidey.js" />
+    <Content Include="assets\web\js\moive.js" />
     <Content Include="assets\web\js\move-top.js" />
     <Content Include="assets\web\js\owl.carousel.js" />
     <Content Include="assets\web\js\simplePlayer.js" />
@@ -1378,16 +1367,8 @@
     <Content Include="assets\web\list-js\jquery.tools.min.js" />
     <Content Include="assets\web\news-css\bg.jpg" />
     <Content Include="assets\web\news-css\news.css" />
+    <Content Include="assets\web\news-css\site.css" />
     <Content Include="assets\web\news-css\style.css" />
-    <Content Include="assets\web\videolink\avatar.mp4" />
-    <Content Include="assets\web\videolink\avengerseg.mp4" />
-    <Content Include="assets\web\videolink\blended.mp4" />
-    <Content Include="assets\web\videolink\culao.mp4" />
-    <Content Include="assets\web\videolink\godfather.mp4" />
-    <Content Include="assets\web\videolink\john.mp4" />
-    <Content Include="assets\web\videolink\jujutsu.mp4" />
-    <Content Include="assets\web\videolink\peaky.mp4" />
-    <Content Include="assets\web\videolink\titanic.mp4" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -1613,7 +1594,6 @@
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
@@ -1635,11 +1615,14 @@
     <Content Include="Views\Movie\CategoryPage.cshtml" />
     <Content Include="Views\Movie\CountryPage.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="ImageFileUpload\" />
+    <Folder Include="VideoFileUpload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

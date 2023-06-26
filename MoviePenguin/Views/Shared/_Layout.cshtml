@@ -3,11 +3,8 @@
 <html lang="en">
 <head>
     <title>PenguinMovie</title>
- 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="One Movies Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript">
         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
                function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -17,12 +14,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="~/assets/web/css/faqstyle.css" type="text/css" media="all" />
     <link href="~/assets/web/css/single.css" rel='stylesheet' type='text/css' />
     <link href="~/assets/web/css/medile.css" rel='stylesheet' type='text/css' />
-    <!-- news-css -->
-    <link rel="stylesheet" href="~/assets/web/news-css/news.css" type="text/css" media="all" />
-    <!-- //news-css -->
-    <!-- list-css -->
-    <link rel="stylesheet" href="~/assets/web/list-css/list.css" type="text/css" media="all" />
-    <!-- //list-css -->
+
+    <link hrel="stylesheet" href="~/assets/web/news-css/news.css" type="text/css" media="all" />
+
+
     <!-- banner-slider -->
     <link href="~/assets/web/css/jquery.slidey.min.css" rel="stylesheet">
     <!-- //banner-slider -->
@@ -47,13 +42,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script>
         $(document).ready(function () {
             $("#owl-demo").owlCarousel({
-                autoPlay: 5000, //Set AutoPlay to 3 seconds
+                autoPlay: 5000,
                 items: 5,
                 itemsDesktop: [640, 4],
                 itemsDesktopSmall: [414, 3]
-
             });
-
         });
     </script>
     <!-- //banner-bottom-plugin -->
@@ -70,79 +63,267 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     </script>
 
+    <link rel="stylesheet" href="~/assets/web/news-css/site.css">
+
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <!--
+      - custom css link
+    -->
+    <link rel="stylesheet" href="~/Content/Site.css">
+
+    <!--
+      - Search
+    -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
-
-<body>
+<body id="top">
     <!-- header -->
-    <div class="header">
+    <header class="header" data-header>
         <div class="container">
+            <div class="overlay" data-overlay></div>
             <div class="w3layouts_logo">
-                <!-- logo -->
-                <a href="/Home/Index">
-                    <h1>Penguin<span>Movie</span></h1> 
-                </a>             
+                <a href="/Home/Index"><h1>Penguin<span>Movies</span></h1></a>
             </div>
-            <div class="w3_search">
-                <form name="timkiem" action="/Home/Search">
-                    <input type="text" name="searchKey" placeholder="Nhập tên phim">
-                    <input type="submit" name="submit" value="Tìm kiếm">
-                </form>
-            </div>
-            @Html.Partial("_LoginPartial")       
-        </div>
-    </div>
-    <!-- //header -->
-    <!-- bootstrap-pop-up -->
-    <script>
-        $('.toggle').click(function () {
-            // Switches the Icon
-            $(this).children('i').toggleClass('fa-pencil');
-            // Switches the forms
-            $('.form').animate({
-                height: "toggle",
-                'padding-top': 'toggle',
-                'padding-bottom': 'toggle',
-                opacity: "toggle"
-            }, "slow");
-        });
-    </script>
-    <!-- //bootstrap-pop-up -->
-    <!-- nav -->
-    @RenderPage("MenuMain.cshtml")
-    <!-- //nav -->
-    <!-- banner -->
-    @RenderSection("slide", required: false)
+            <div class="header-actions">
+                <div class="SearchBox">
+                    <form name="timkiem" action="/Home/Search">
+                        <input type="text" name="searchKey" class="SearchBox-input" placeholder="Nhập tên phim">
+                        <button class="SearchBox-button">
+                            <i class="SearchBox-icon  material-icons">search</i>
+                        </button>
+                    </form>
 
-    @RenderBody()
-    <!-- footer -->
-    <div class="footer">
-        <div class="container">
-            <div class="w3ls_footer_grid">
-                <div class="col-md-6 w3ls_footer_grid_left">
-                    <div class="w3ls_footer_grid_left1">
-                        <h2>Đăng Ký Nhận Thông Báo</h2>
-                        <div class="w3ls_footer_grid_left1_pos">
-                            <form action="#" method="post">
-                                <input type="email" name="email" placeholder="Nhập Email của bạn" required="">
-                                <input type="submit" value="Đăng Ký">
-                            </form>
+                </div>
+                <div class="lang-wrapper">
+                    <label for="language">
+                        <ion-icon name="globe-outline"></ion-icon>
+                    </label>
+
+                    <select name="language" id="language">
+                        <option value="en">EN</option>
+                        <option value="au">AU</option>
+                        <option value="ar">AR</option>
+                        <option value="tu">TU</option>
+                    </select>
+                </div>
+
+                 @Html.Partial("_LoginPartial")
+               
+            </div>
+
+            <button class="menu-open-btn" data-menu-open-btn>
+                <ion-icon name="reorder-two"></ion-icon>
+            </button>
+
+            <nav class="navbar" data-navbar>
+
+                <div class="navbar-top">
+
+                    <a href="./index.html" class="logo">
+                        <img src="~/assets/web/images/logo.svg" alt="Filmlane logo">
+                    </a>
+                    <button class="menu-close-btn" data-menu-close-btn>
+                        <ion-icon name="close-outline"></ion-icon>
+                    </button>
+                </div>
+
+                <ul class="navbar-list">
+
+
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Thể Loại</button>
+                            <div class="dropdown-content">
+                                <a href="~/Movie/CategoryPage/1">Khoa Học Viễn Tưởng</a>
+                                <a href="~/Movie/CategoryPage/2">Kinh Dị</a>
+                                <a href="~/Movie/CategoryPage/3">Phim Hài</a>
+                                <a href="~/Movie/CategoryPage/4">Anime</a>
+                                <a href="~/Movie/CategoryPage/5">TV Series</a>
+                                <a href="~/Movie/CategoryPage/6">Phim Hành Động</a>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6 w3ls_footer_grid_right">
-                    <a href="~/Admin"><h2>Penguin<span>Admin</span></h2></a>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="col-md-5 w3ls_footer_grid1_left">
-                <p>&copy; 2023 Penguin Movie </p>
-            </div>
-            <div class="clearfix"> </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Quốc Gia</button>
+                            <div class="dropdown-content">
+                                <a href="~/Movie/CountryPage/1">Mỹ</a>
+                                <a href="~/Movie/CountryPage/2">Việt Nam</a>
+                                <a href="~/Movie/CountryPage/3">Nhật Bản</a>
+                                <a href="~/Movie/CountryPage/4">Anh</a>
+                                <a href="~/Movie/CountryPage/5">Hàn Quốc </a>
+                                <a href="~/Movie/CountryPage/6">Ấn Độ</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a class="navbar-link" href="/contact/">Liên Hệ</> </a>
+                    <li />
+
+                </ul>
+            </nav>
+
         </div>
-    </div>
-    <!-- //footer -->
-    <!-- Bootstrap Core JavaScript -->
-    <script src="~/assets/web/js/bootstrap.min.js"></script>
+    </header>
+    <article>
+
+
+
+
+        @RenderSection("slide", required: false)
+
+
+        @RenderBody()
+
+
+        <section class="cta">
+            <div class="container">
+
+                <form action="" class="cta-form">
+                    <input type="email" name="email" required placeholder="Enter your email" class="email-field">
+
+                    <button type="submit" class="cta-form-btn">Get started</button>
+                </form>
+
+            </div>
+        </section>
+
+    </article>
+
+
+    <!-- footer -->
+    <footer class="footer">
+
+        <div class="footer-top">
+            <div class="container">
+
+                <div class="footer-brand-wrapper">
+
+                    <div class="w3layouts_logo">
+                        <a href="/Home/Index"><h1><span>PenguinMovies</span></h1></a>
+                    </div>
+
+                    <ul class="footer-list">
+
+                        <li>
+                            <a href="./index.html" class="footer-link">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="footer-link">Movie</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="footer-link">TV Show</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="footer-link">Web Series</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="footer-link">Pricing</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="quicklink-wrapper">
+
+                    <ul class="quicklink-list">
+
+                        <li>
+                            <a href="#" class="quicklink-link">Faq</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="quicklink-link">Help center</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="quicklink-link">Terms of use</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="quicklink-link">Privacy</a>
+                        </li>
+
+                    </ul>
+
+                    <ul class="social-list">
+
+                        <li>
+                            <a href="#" class="social-link">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="social-link">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="social-link">
+                                <ion-icon name="logo-pinterest"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="social-link">
+                                <ion-icon name="logo-linkedin"></ion-icon>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="copyright">
+                    &copy; 2022 <a href="#">codewithsadee</a>. All Rights Reserved
+                </p>
+            </div>
+        </div>
+
+    </footer>
+    <!--
+      - #GO TO TOP
+    -->
+    <a href="#top" class="go-top" data-go-top>
+        <ion-icon name="chevron-up"></ion-icon>
+    </a>
+    <!--
+      - custom js link
+    -->
+    <script src="~/assets/web/js/moive.js"></script>
+
+    <!--
+      - ionicon link
+    -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
 </html>
+
+
+
+

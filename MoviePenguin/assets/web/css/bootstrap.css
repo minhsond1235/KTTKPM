@@ -1088,8 +1088,8 @@ html {
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  line-height: 1.42857143;
-  color: #333;
+  line-height: 3.42857143;
+  color: yellow;
   background-color: #fff;
 }
 input,
@@ -2992,7 +2992,7 @@ select[multiple].form-group-lg .form-control {
   margin-bottom: 0;
   font-size: 14px;
   font-weight: normal;
-  line-height: 1.42857143;
+  line-height: 3.42857143;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;

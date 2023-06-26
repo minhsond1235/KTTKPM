@@ -77,7 +77,7 @@ namespace MoviePenguin.Controllers
             var upview = DBContext.Movies.Find(id);
             if (upview.Viewed == null)
             {
-                upview.Viewed = 1;
+                 upview.Viewed = 1;
                 upview.Name = upview.Name;
                 upview.Image = upview.Image;
                 upview.Actor = upview.Actor;

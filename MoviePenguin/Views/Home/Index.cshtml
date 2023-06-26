@@ -9,198 +9,252 @@
 
 }
 
-@section slide{
-    <!-- banner -->
-    <div id="slidey" style="display:none;">
-        <ul>
-            @foreach (var item in Slides)
-            {
-                <li><img src="~/assets/web/images/@item.Image" alt=" "><div><p class='title' with="250">@item.Name</p></div><p class='description'>@item.Descriptinon</p></li>
 
+
+@section slide{
+    <section class="hero">
+        <div class="container">
+
+            <div class="hero-content">
+
+                <p class="hero-subtitle">Penguin Movie</p>
+
+                <h1 class="h1 hero-title">
+                    Phim <strong>Không Giới Hạn</strong>, Hoàn Toàn Miễn Phí, & Hơn thế nữa.
+                </h1>
+
+                <div class="meta-wrapper">
+
+                    <div class="badge-wrapper">
+                        <div class="badge badge-fill">Vietsub</div>
+
+                        <div class="badge badge-outline">Full HD</div>
+                    </div>
+
+                    <div class="ganre-wrapper">
+                        <a href="#">Kinh dị,</a>
+
+                        <a href="#">Khoa học viễn tưởng</a>
+                    </div>
+
+                    <div class="date-time">
+
+                        <div>
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </div>
+
+                        <div>
+                            <ion-icon name="time-outline"></ion-icon>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button class="btn btn-primary">
+                    <ion-icon name="play"></ion-icon>
+
+                    <span>Xem Ngay</span>
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+
+}
+
+
+
+
+<section class="upcoming">
+    <div class="container">
+
+        <div class="flex-wrapper">
+
+            <div class="title-wrapper">
+                <p class="section-subtitle">Online Streaming</p>
+
+                <h2 class="h2 section-title">Phim Mới Cập Nhật</h2>
+            </div>
+            <ul class="filter-list">
+
+                <li>
+                    <button class="filter-btn">Movies</button>
+                </li>
+
+                <li>
+                    <button class="filter-btn">TV Shows</button>
+                </li>
+
+                <li>
+                    <button class="filter-btn">Anime</button>
+                </li>
+
+            </ul>
+        </div>
+
+        <ul class="movies-list  has-scrollbar">
+            @foreach (var s  in listMovieNew ) 
+            {
+
+                <li>
+                    <div class="movie-card">
+                        <a href="/Movie/MovieDetail/@s.MovieID">
+                            <figure class="card-banner">
+                                <img src="~/@s.Image" title="album-name" alt="The Northman movie poster">
+                            </figure>
+                        </a>
+                        <div class="title-wrapper">
+                            <a href="/Movie/MovieDetail/@s.MovieID">
+                                <h3 class="card-title">@s.Name</h3>
+                            </a>
+                            <p>@s.Year</p>
+                        </div>
+                        <div class="card-meta">
+                            <div class="badge badge-outline">HD</div>
+                            <div class="duration">
+                                <ion-icon name="time-outline"></ion-icon>
+                                <time datetime="PT137M">137 min</time>
+                            </div>
+                            <div class="rating">
+                                <ion-icon name="star"></ion-icon>
+                                <data>@s.Rate</data>
+                            </div>
+                        </div>
+
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</section>
+
+
+
+
+
+
+
+<section class="top-rated">
+    <div class="container">
+
+        <p class="section-subtitle">Online Streaming</p>
+
+        <h2 class="h2 section-title">Top Phim Được Rate Cao</h2>
+
+        <ul class="filter-list">
+
+            <li>
+                <button class="filter-btn">Kinh dị</button>
+            </li>
+
+            <li>
+                <button class="filter-btn">Thể Thao</button>
+            </li>
+
+            <li>
+                <button class="filter-btn">Âm nhạc</button>
+            </li>
+
+            <li>
+                <button class="filter-btn">Khám phá</button>
+            </li>
+
+        </ul>
+
+        <ul class="movies-list">
+            @foreach (var m in listMovieTop)
+            {
+                <li>
+                    <div class="movie-card">
+                        <a href="/Movie/MovieDetail/@m.MovieID">
+                            <figure class="card-banner">
+                                <img src="~/@m.Image" alt="Sonic the Hedgehog 2 movie poster">
+                            </figure>
+                        </a>
+
+                        <div class="title-wrapper">
+                            <a href="/Movie/MovieDetail/@m.MovieID">
+                                <h3 class="card-title">@m.Name</h3>
+                            </a>
+
+                            <time datetime="2022">@m.Year</time>
+                        </div>
+
+                        <div class="card-meta">
+                            <div class="badge badge-outline">2K</div>
+
+                            <div class="duration">
+                                <ion-icon name="time-outline"></ion-icon>
+                                <time datetime="PT122M">122 min</time>
+                            </div>
+
+                            <div class="rating">
+                                <ion-icon name="star"></ion-icon>
+
+                                <data>@m.Rate</data>
+                            </div>
+                        </div>
+
+                    </div>
+                </li>
             }
 
         </ul>
     </div>
-    <script src="~/assets/web/js/jquery.slidey.js"></script>
-    <script src="~/assets/web/js/jquery.dotdotdot.min.js"></script>
-    <script type="text/javascript">
-        $("#slidey").slidey({
-            interval: 8000,
-            listCount: 5,
-            autoplay: false,
-            showList: true
-        });
-        $(".slidey-list-description").dotdotdot();
-    </script>
-    <!--End banner -->
-}
-
-<!-- banner-bottom -->
-
-<h4 class="latest-text w3_latest_text">Phim Mới</h4>
+</section>
+<section class="tv-series">
     <div class="container">
-        <div class="w3_agile_banner_bottom_grid">
-            <div id="owl-demo" class="owl-carousel owl-theme">
-                @foreach (var s in listMovieNew)
-                {
-                    <div class="item">
-                        <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-                            <a href="/Movie/MovieDetail/@s.MovieID" class="hvr-shutter-out-horizontal">
-                                <img src="~/assets/web/images/@s.Image" title="album-name" alt="@s.Name" width="182" height="265" />
-                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+
+        <p class="section-subtitle">Top Phim Phổ Biến</p>
+
+        <h2 class="h2 section-title">Phim Phổ Biến Nhất Thời Gian Qua</h2>
+
+        <ul class="movies-list">
+            @foreach (var po in listMoviePo)
+            {
+                <li>
+                    <div class="movie-card">
+
+                        <a href="~/Movie/MovieDetail/@po.MovieID">
+                            <figure class="card-banner">
+                                <img src="~/@po.Image" alt="Moon Knight movie poster">
+                            </figure>
+                        </a>
+                        <div class="title-wrapper">
+                            <a href="~/Movie/MovieDetail/@po.MovieID">
+                                <h3 class="card-title">@po.Name</h3>
                             </a>
-                            <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                <div class="w3l-movie-text">
-                                    <h6><a href="#">@s.Name</a></h6>
-                                </div>
-                                <div class="mid-2 agile_mid_2_home">
-                                    <p>@s.Year</p>
-                                    <div class="block-stars">
-                                        <ul class="w3l-ratings">
-                                            <h5 style="font-size:12px;font-weight:bold;background-color:#E3B71E;border-radius:3px;padding:3px;"> Điểm IMDb: @s.Rate</h5>
+                            <time datetime="2022">@po.Year</time>
+                        </div>
+                        <div class="card-meta">
+                            <div class="badge badge-outline">2K</div>
 
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
+                            <div class="duration">
+                                <ion-icon name="time-outline"></ion-icon>
+                                <time datetime="PT47M">47 min</time>
                             </div>
-                            <div class="ribben">
-                                <p>NEW</p>
+
+                            <div class="rating">
+                                <ion-icon name="star"></ion-icon>
+
+                                <data>@po.Rate</data>
                             </div>
                         </div>
-                    </div>
-                }
-
-            </div>
-        </div>
-    </div>
-
-
-
-<!-- //banner-bottom -->
-<!-- general -->
-<div class="general-agileits-w3l">
-    <div class="w3l-medile-movies-grids">
-        <div class="movie-browse-agile">
-            <div class="browse-agile-w3ls general-w3ls">
-                <h4 class="latest-text w3_latest_text">Phim nổi bật</h4>
-                <div class="container">
-                   
-                    <div class="browse-inner-come-agile-w3">
-
-                        @foreach (var m in listMovieTop)
-                        {
-                            <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="/Movie/MovieDetail/@m.MovieID" class="hvr-shutter-out-horizontal">
-
-                                    <img src="~/assets/web/images/@m.Image" title="album-name" alt="@m.Name" width="182" height="265" />
-                                    <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                                </a>
-                                <div class="mid-1">
-                                    <div class="w3l-movie-text">
-                                        <h6><a href="#">@m.Name</a></h6>
-                                    </div>
-                                    <div class="mid-2">
-
-                                        <p>@m.Year</p>
-
-                                        <div class="block-stars">
-                                            <ul class="w3l-ratings">
-                                                <h5 style="font-size:12px;font-weight:bold;background-color:#E3B71E;border-radius:3px;padding:3px;"> Điểm IMDb: @m.Rate</h5>
-                                            </ul>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        }
 
                     </div>
-                </div>
-            </div>
-        </div>
+                </li>
+            }
+
+        </ul>
+
     </div>
-</div>
+</section>
 
-<!-- //general -->
 
-<!-- Latest-tv-series -->
-<div class="Latest-tv-series">
-    <h4 class="latest-text w3_latest_text w3_home_popular">Phim phổ biến nhất</h4>
-    <div class="container">
-        <section class="slider">
-            <div class="flexslider">
 
-                <ul class="slides">
-                    <li>
-                        <div class="agile_tv_series_grid">
-                            <div class="clearfix"> </div>
-                            <div class="agileinfo_flexislider_grids">
-                                @foreach (var po in listMoviePo)
-                                {
-                                    <div class="col-md-2 w3l-movie-gride-agile">
-                                        <a href="/Movie/MovieDetail/@po.MovieID" class="hvr-shutter-out-horizontal">
-                                            <img src="~/assets/web/images/@po.Image" title="album-name" alt="@po.Name" width="182" height="268" />
-                                            <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                                        </a>
-                                        <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                            <div class="w3l-movie-text">
-                                                <h6><a href="#">@po.Name</a></h6>
-                                            </div>
-                                            <div class="mid-2 agile_mid_2_home">
-                                                <p>@po.Year</p>
-                                                <div class="block-stars">
-                                                    <ul class="w3l-ratings">
-                                                        <h5 style="font-size:12px;font-weight:bold;background-color:#E3B71E;border-radius:3px;padding:3px;"> Điểm IMDb: @po.Rate</h5>
 
-                                                    </ul>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                }
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <!-- flexSlider -->
-        <link rel="stylesheet" href="~/assets/web/css/flexslider.css" type="text/css" media="screen" property="" />
-        <script defer src="~/assets/web/js/jquery.flexslider.js"></script>
-        <script type="text/javascript">
-            $(window).load(function () {
-                $('.flexslider').flexslider({
-                    animation: "slide",
-                    start: function (slider) {
-                        $('body').removeClass('loading');
-                    }
-                });
-            });
-        </script>
-        <!-- //flexSlider -->
-    </div>
-</div>
-<!-- pop-up-box -->
-<script src="~/assets/web/js/jquery.magnific-popup.js" type="text/javascript"></script>
+       
 
-<script>
-        $(document).ready(function () {
-            $('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
-                type: 'inline',
-                fixedContentPos: false,
-                fixedBgPos: true,
-                overflowY: 'auto',
-                closeBtnInside: true,
-                preloader: false,
-                midClick: true,
-                removalDelay: 300,
-                mainClass: 'my-mfp-zoom-in'
-            });
-    });
-</script>
 <!-- //Latest-tv-series -->

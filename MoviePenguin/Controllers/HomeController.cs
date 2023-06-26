@@ -1,5 +1,6 @@
 ﻿
 using MoviePenguin.DAO;
+using MoviePenguin.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,12 @@ namespace MoviePenguin.Controllers
     {
         public ActionResult Index()
         {
+            TestDBContext test = new TestDBContext();
+            var x = test.Countries.ToList();
             var MovieDao = new MovieDao();
             ViewBag.listMovieNew = MovieDao.ListMovieNew(6);
-            ViewBag.listMovieTop = MovieDao.ListMovieTop(6);
-            ViewBag.listMoviePo = MovieDao.ListMoviePo(6);
+            ViewBag.listMovieTop = MovieDao.ListMovieTop(4);
+            ViewBag.listMoviePo = MovieDao.ListMoviePo(4);
             ViewBag.Slides = new SlideDao().ListAllSlide(5);
             return View(MovieDao);
         }

@@ -36,6 +36,8 @@ font-family: 'Roboto Condensed', sans-serif;
 .song-info {
     padding-left: 0;
     padding: 0 0 1em;
+    background: yellow;
+    color: black;
 }
 .song-info h3{
   color: #272C2E;

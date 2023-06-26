@@ -29,7 +29,7 @@ namespace MoviePenguin.DAO
      
         public List<Movie> ListMovieTop(int top)
         {
-            return dbContext.Movies.Where(x => x.Status == true).OrderByDescending(x => x.Viewed).Take(top).ToList();
+            return dbContext.Movies.Where(x => x.Status == true).OrderByDescending(x => x.Rate).Take(top).ToList();
         }
         
         public List<Movie> ListMoviePo(int top)

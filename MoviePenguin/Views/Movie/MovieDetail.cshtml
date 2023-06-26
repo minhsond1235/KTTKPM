@@ -6,17 +6,83 @@
     var listMovieRelated = (List<MoviePenguin.Models.Movie>)ViewBag.listMovieRelated;
     var listMovieNew1 = (List<MoviePenguin.Models.Movie>)ViewBag.listMovieNew1;
     var movie = (MoviePenguin.Models.Movie)ViewBag.movie;
+    var listMovieNew = (List<MoviePenguin.Models.Movie>)ViewBag.listMovieNew;
 }
+
+<section class="movie-detail">
+    <div class="container">
+
+        <figure class="movie-detail-banner">
+
+            <img src="~/@movie.Image">
+
+        </figure>
+
+        <div class="movie-detail-content">
+
+            <p class="detail-subtitle">New Episodes</p>
+
+            <h1 class="h1 detail-title">
+                <strong>@movie.Name</strong>
+            </h1>
+
+            <div class="meta-wrapper">
+
+                <div class="badge-wrapper">
+                    <div class="badge badge-fill">@movie.Directors</div>
+                </div>
+                <div class="ganre-wrapper">
+                    <a href="#">@category.Name</a>
+                </div>
+
+                <div class="ganre-wrapper">
+                    <div class="badge badge-outline">@movie.Actor</div>
+                </div>
+                <div class="date-time">
+
+                    <div>
+                        <ion-icon name="calendar-outline"></ion-icon>
+
+                        <time datetime="2021">@movie.Year</time>
+                    </div>
+
+                    <div>
+                        <ion-icon name="time-outline"></ion-icon>
+
+                        <time datetime="PT115M">115 min</time>
+                    </div>          
+                </div>
+
+            </div>
+
+            <p class="storyline">
+                @movie.Description
+            </p>
+
+            <div class="details-actions">
+
+
+                <button class="btn btn-primary">
+                    <ion-icon name="play"></ion-icon>
+
+                    <span>Watch Now</span>
+                </button>
+
+            </div>
+            <a href="@movie.MovieID" download class="download-btn">
+                <span>Download</span>
+                <ion-icon name="download-outline"></ion-icon>
+            </a>
+
+        </div>
+
+    </div>
+</section>
 
 <div class="single-page-agile-main">
     <div class="container">
         <!-- /w3l-medile-movies-grids -->
-        <div class="agileits-single-top">
-            <ol class="breadcrumb">
-                <li><a href="/">Trang Chủ</a></li>
-                <li><a href="/Movie/CategoryPage/@category.CategoryID">@category.Name</a> &nbsp;&nbsp;/&nbsp;&nbsp;<a href="#">@movie.Name</a></li>
-            </ol>
-        </div>
+
         <div class="single-page-agile-info">
             <!-- /movie-browse-agile -->
             <div class="show-top-grids-w3lagile">
@@ -26,162 +92,67 @@
                             <marquee>Bạn đang xem phim @movie.Name  - Chúc các bạn có những giây phút thư giãn và vui vẻ </marquee>
                         </div>
                         <div class="video-grid-single-page-agileits">
-                            <video src="~/assets/web/videolink/@Model.MovieLink" controls="controls" width="700" height="400">Trình duyệt bạn đang dùng không hỗ trợ tag video.</video>
-
+                            <video src="~/@Model.MovieLink" controls="controls" width="700" height="400"> </video>
                         </div>
                     </div>
-                    <div class="all-comments" style="font-size:20px;text-align:center">
-
-                        <a href="#"><span class="label label-success">Tải Xuống Phim</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="#"><span class="label label-warning">Thêm phim yêu thích</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="#"><span class="label label-danger">Báo cáo hỏng link!</span></a>
-                        <br />
-                        <br />
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <form class="form-horizontal">
-                                        <div class="form-group form-group-sm">
-                                            <label for="truyen-background" class="col-sm-2 col-md-5 control-label"><span class="label label-success">Màu nền</span></label>
-                                            <div class="col-sm-5 col-md-7">
-                                                <select id="movie-background" class="form-group">
-                                                    <option value="#F4F4F4">Xám nhạt</option>
-                                                    <option value="#EAE4D3">Màu sepia</option>
-                                                    <option value="#FFFFE5">Vàng nhạt</option>
-                                                    <option value="#FAFAC8">Vàng đậm</option>
-                                                    <option value="#EFEFAB">Vàng ố</option>
-                                                    <option value="#FFF">Màu trắng</option>
-                                                    <option value="#232323">Màu tối</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="col-md-5">
-                                    <form class="form-horizontal">
-                                        <div class="form-group form-group-sm">
-                                            <label for="truyen-background" class="col-sm-2 col-md-5 control-label"><span class="label label-success">Màu chữ</span></label>
-                                            <div class="col-sm-5 col-md-7">
-                                                <select id="movie-color">
-                                                    <option value="#F4F4F4">Xám nhạt</option>
-                                                    <option value="#EAE4D3">Màu sepia</option>
-                                                    <option value="#FFFFE5">Vàng nhạt</option>
-                                                    <option value="#FAFAC8">Vàng đậm</option>
-                                                    <option value="#EFEFAB">Vàng ố</option>
-                                                    <option value="#FFF">Màu trắng</option>
-                                                    <option value="#232323">Màu tối</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="song-grid-right">
-                     
-                        <div class="all-comments">
-                            <div class="single-right-grids">
-                                <div class="col-md-4 single-right-grid-left">
-                                    <a href="/Movie/MovieDetail/@movie.MovieID"><img src="~/assets/web/images/@movie.Image" width="182" height="265" /></a>
-                                </div>
-                                <div class="col-md-8 single-right-grid-right">
-                                    <h2><a href="/Movie/MovieDetail/@movie.MovieID" class="title"> @movie.Name</a> </h2>
-                                    <h4> Tác Giả : @movie.Directors</h4>
-                                    <h4> Diễn Viên : @movie.Actor</h4>
-                                    <h4> Ngày Ra mắt :@movie.CreateDate</h4>
-                                    <h4> Lượt Xem :@movie.Viewed views</h4>
-                                    <h4>Điểm IMDB : @movie.Rate</h4>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                            <div class="share">
-                                <h5>Nội Dung:</h5>
-                                @Html.Raw(Model.Description)
-                            </div>
-                        </div>
-
-                        <div class="all-comments">
-                            <h5>Like</h5>
-                            <div class="fb-like" data-width="" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-                        </div>
-                    </div>                               
                     <div class="all-comments">
-                        <h5>Bình Luận</h5>
-                        <div class="all-comments-info">
-                            <div class="fb-comments" data-width="600" data-numposts="5"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 single-right">
-                    <h3>Phim Liên Quan</h3>
-                    <div class="single-grid-right">
-                        @foreach (var plq in listMovieRelated)
-                        {
-                            <div class="single-right-grids">
-                                <div class="col-md-4 single-right-grid-left">
-                                    <a href="/Movie/MovieDetail/@plq.MovieID"><img src="~/assets/web/images/@plq.Image" alt="" /></a>
-                                </div>
-                                <div class="col-md-8 single-right-grid-right">
-                                    <a href="/Movie/MovieDetail/@plq.MovieID" class="title"> @plq.Name</a>
-                                    <p class="author"><a href="#" class="author">@plq.Directors</a></p>
-                                    <p class="views">@plq.Viewed views</p>
-                                </div>
-                                <div class="clearfix"> </div>
-                            </div>
-                        }
-
-
-
+                        <h5>Like</h5>
+                        <div class="fb-like" data-width="" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                     </div>
                 </div>
 
-
-
-                <div class="clearfix"> </div>
             </div>
-            <!-- //movie-browse-agile -->
-            <!--body wrapper start-->
-            <div class="w3_agile_banner_bottom_grid">
-                <div id="owl-demo" class="owl-carousel owl-theme">
-                    @foreach (var pm in listMovieNew1)
-                    {
-                        <div class="item">
-                            <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-                                <a href="/Movie/MovieDetail/@pm.MovieID" class="hvr-shutter-out-horizontal">
-                                    <img src="~/assets/web/images/@pm.Image" title="album-name" alt="@pm.Name" width="182" height="265" />
-                                    <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                                </a>
-                                <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                    <div class="w3l-movie-text">
-                                        <h6><a href="/phim/@pm.MovieID">@pm.Name</a></h6>
-                                    </div>
-                                    <div class="mid-2 agile_mid_2_home">
-                                        <p>@pm.Year</p>
-                                        <div class="block-stars">
-                                            <ul class="w3l-ratings">
-                                                <h5 style="font-size:12px;font-weight:bold;background-color:#E3B71E;border-radius:3px;padding:3px;"> Điểm IMDb: @pm.Rate</h5>
-
-                                            </ul>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                                <div class="ribben">
-                                    <p>NEW</p>
-                                </div>
-                            </div>
-                        </div>
-                    }
-
-
-                </div>
-            </div>
-            <!--body wrapper end-->
-
-
+            <div class="clearfix"> </div>
         </div>
-        <!-- //w3l-latest-movies-grids -->
+
+
+
     </div>
+    <!-- //w3l-latest-movies-grids -->
 </div>
+
+<section class="tv-series">
+    <div class="container">
+
+        <p class="section-subtitle">Best Movie </p>
+
+        <h2 class="h2 section-title">Top phim cùng thể loại</h2>
+
+        <ul class="movies-list">
+            @foreach (var m in listMovieRelated)
+            {
+               <li>
+                   <div class="movie-card">
+                       <a href="/Movie/MovieDetail/@m.MovieID">
+                           <figure class="card-banner">
+                               <img src="~/@m.Image" title="album-name" alt="The Northman movie poster">
+                           </figure>
+                       </a>
+                       <div class="title-wrapper">
+                           <a href="/Movie/MovieDetail/@m.MovieID">
+                               <h3 class="card-title">@m.Name</h3>
+                           </a>
+                           <p>@m.Year</p>
+                       </div>
+                       <div class="card-meta">
+                           <div class="badge badge-outline">HD</div>
+                           <div class="duration">
+                               <ion-icon name="time-outline"></ion-icon>
+                               <time datetime="PT137M">137 min</time>
+                           </div>
+                           <div class="rating">
+                               <ion-icon name="star"></ion-icon>
+                               <data>@m.Rate</data>
+                           </div>
+                       </div>
+
+                   </div>
+               </li>
+            }
+            </ul>
+
+
+    </div>
+</section>
+
 <!-- //w3l-medile-movies-grids -->

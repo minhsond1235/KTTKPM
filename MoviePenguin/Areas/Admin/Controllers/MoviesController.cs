@@ -55,8 +55,17 @@ namespace MoviePenguin.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MovieID,Name,Image,Actor,Description,Directors,Year,Country,MovieLink,CategoryID,Rate,CountryID,Viewed,CreateDate,Status")] Movie movie)
+        public ActionResult Create([Bind(Include = "MovieID,Name,Actor,Description,Directors,Year,CategoryID,Rate,CountryID,Viewed,CreateDate,Status")] Movie movie, HttpPostedFileBase  urlmovie, HttpPostedFileBase urlimage)
         {
+            if (urlmovie != null && urlmovie.ContentLength > 0)
+            {
+                string fileName = System.IO.Path.GetFileName(urlmovie.FileName);
+                string movieLink = Server.MapPath( "~/VideoFileUpload/" + fileName);
+                urlmovie.SaveAs(movieLink);
+                movie.MovieLink = "VideoFileUpload/" + fileName;
+            }
+
+
             if (ModelState.IsValid)
             {
                 db.Movies.Add(movie);
@@ -93,10 +102,33 @@ namespace MoviePenguin.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MovieID,Name,Image,Actor,Description,Directors,Year,Country,MovieLink,CategoryID,Rate,CountryID,Viewed,CreateDate,Status")] Movie movie)
+        public ActionResult Edit([Bind(Include = "MovieID,Name,Image,Actor,Description,Directors,Year,Country,CategoryID,Rate,CountryID,Viewed,CreateDate,Status")] Movie movie,HttpPostedFileBase editmovie,HttpPostedFileBase editimg)
         {
+
             if (ModelState.IsValid)
             {
+                
+                if (movie != null)
+                {               
+                    if (editmovie != null && editmovie.ContentLength > 0)
+                    {
+                        string fileName = System.IO.Path.GetFileName(editmovie.FileName);
+                        string movieLink = Server.MapPath("~/VideoFileUpload" + fileName);
+                        editmovie.SaveAs(movieLink);
+                        movie.MovieLink = "VideoFileUpload" + fileName;
+                    }
+                }
+                if (movie != null)
+                {
+                    if (editimg != null && editimg.ContentLength > 0)
+                    {
+                        string fileName = System.IO.Path.GetFileName(editimg.FileName);
+                        string image = Server.MapPath("~/VideoFileUpload/" + fileName);
+                        editimg.SaveAs(image);
+                        movie.Image = "VideoFileUpload/" + fileName;
+                    }
+                }
+
                 db.Entry(movie).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -105,7 +137,6 @@ namespace MoviePenguin.Areas.Admin.Controllers
             ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "Name", movie.CountryID);
             return View(movie);
         }
-
         // GET: Admin/Movies/Delete/5
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
