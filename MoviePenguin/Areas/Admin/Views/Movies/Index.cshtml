@@ -4,22 +4,14 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
 }
 
 @*@model IEnumerable<Movie>*@
 @section jsFooter{
     <script src="~/assets/admin/js/controller/movieController.js"></script>
 }
-
-
-
-
 <div class="main-content">
-    <center>
-        <div>
-            <h3 style="background-color:lavender">DANH SÁCH PHIM </h3>
-        </div>
-    </center>
     <div class="table-data__tool">
         <div class="table-data__tool-left">
             <div class="rs-select2--light rs-select2--md">
@@ -57,16 +49,12 @@
                         <th>Mô Tả</th>
                         <th>Đạo Diễn</th>
                         <th>Ngày phát hành</th>
-                        <th>Link Phim</th>
                         <th>Thể loại</th>
                         <th>Đánh Giá</th>
                         <th>Lượt Xem</th>
-                        <th>Ngày Tạo</th>
-                        <th>Trạng Thái</th>
+                        <th>Ngày Tạo</th>  
                         <th>Quốc Gia</th>
                         <th>Chức năng</th>
-                        <th>Chức năng 2</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -78,28 +66,17 @@
                         {
                             <tr style="text-align:left;" id="row_@item.MovieID" class="tr-shadow">
                                 <td style="display:none;">@item.MovieID</td>
-
                                 <td class="tr-shadow">@item.Name</td>
                                 <td class="tr-shadow"><img src="~/@item.Image" width="150" height="200" /></td>
-
-
                                 <td class="tr-shadow">@item.Actor</td>
                                 <td class="tr-shadow"><textarea cols="20" rows="5" readonly>@Html.Raw(item.Description)</textarea></td>
                                 <td class="tr-shadow">@item.Directors</td>
-
-                                <td class="tr-shadow">@item.Year</td>
-                                <td class="tr-shadow"><textarea cols="20" rows="5" readonly>@item.MovieLink</textarea></td>
-
-                                <td class="tr-shadow">@item.CategoryID</td>
+                                <td class="tr-shadow">@item.Year</td>              
+                                <td class="tr-shadow">@item.Category.Name</td>
                                 <td class="tr-shadow">@item.Rate</td>
-
                                 <td class="tr-shadow">@item.Viewed</td>
                                 <td class="tr-shadow">@item.CreateDate</td>
-
-                                <td class="tr-shadow"><a href="#" class="btn-active" data-id="@item.MovieID">
-
-                                <td class="tr-shadow">@item.CountryID</td>
-
+                                <td class="tr-shadow">@item.Country1.Name</td>
                                 <td>
                                     <button class="btn btn-outline-success">
                                         <i class="fa fa-pencil"> </i>

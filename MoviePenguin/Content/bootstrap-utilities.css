@@ -1643,7 +1643,7 @@
 }
 
 .bg-gradient {
-  background-image: var(--bs-gradient) !important;
+  background-image: none;
 }
 
 .user-select-all {

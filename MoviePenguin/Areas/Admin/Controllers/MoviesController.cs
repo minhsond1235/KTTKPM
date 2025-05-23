@@ -16,7 +16,7 @@ namespace MoviePenguin.Areas.Admin.Controllers
         private MovieDBContext db = new MovieDBContext();
 
         // GET: Admin/Movies
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public ActionResult Index(int page = 1, int pageSize = 5)
         {
             var DAO = new MovieDao();
@@ -25,7 +25,7 @@ namespace MoviePenguin.Areas.Admin.Controllers
         }
 
         // GET: Admin/Movies/Details/5
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -41,7 +41,7 @@ namespace MoviePenguin.Areas.Admin.Controllers
         }
 
         // GET: Admin/Movies/Create
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name");
@@ -52,7 +52,7 @@ namespace MoviePenguin.Areas.Admin.Controllers
         // POST: Admin/Movies/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MovieID,Name,Actor,Description,Directors,Year,CategoryID,Rate,CountryID,Viewed,CreateDate,Status")] Movie movie, HttpPostedFileBase  urlmovie, HttpPostedFileBase urlimage)
@@ -64,6 +64,17 @@ namespace MoviePenguin.Areas.Admin.Controllers
                 urlmovie.SaveAs(movieLink);
                 movie.MovieLink = "VideoFileUpload/" + fileName;
             }
+
+            if (urlimage != null && urlimage.ContentLength > 0)
+            {
+                string fileName = System.IO.Path.GetFileName(urlimage.FileName);
+                string imagelink = Server.MapPath("~/VideoFileUpload/" + fileName);
+                urlimage.SaveAs(imagelink);
+                movie.Image = "VideoFileUpload/" + fileName;
+            }
+
+
+
 
 
             if (ModelState.IsValid)
@@ -79,7 +90,7 @@ namespace MoviePenguin.Areas.Admin.Controllers
         }
 
         // GET: Admin/Movies/Edit/5
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -99,7 +110,7 @@ namespace MoviePenguin.Areas.Admin.Controllers
         // POST: Admin/Movies/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MovieID,Name,Image,Actor,Description,Directors,Year,Country,CategoryID,Rate,CountryID,Viewed,CreateDate,Status")] Movie movie,HttpPostedFileBase editmovie,HttpPostedFileBase editimg)
@@ -138,7 +149,7 @@ namespace MoviePenguin.Areas.Admin.Controllers
             return View(movie);
         }
         // GET: Admin/Movies/Delete/5
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -154,7 +165,7 @@ namespace MoviePenguin.Areas.Admin.Controllers
         }
 
         // POST: Admin/Movies/Delete/5
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

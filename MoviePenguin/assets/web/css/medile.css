@@ -201,7 +201,7 @@ ul#myTab {
 }
 .w3l-movie-text h6 a {
     font-size: 1.4em;
-    color: #222;
+    color: white;
 }
 .w3l-movie-text {
 	    margin: 0.7em 0;
@@ -209,7 +209,7 @@ ul#myTab {
 .mid-2 p {
        float: left;
     font-size: 1em;
-    color: #333;
+    color: white;
     line-height: 22px;
 }
 .block-stars {

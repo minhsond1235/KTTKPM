@@ -181,6 +181,7 @@
     <Compile Include="Areas\Admin\Controllers\CountryController.cs" />
     <Compile Include="Areas\Admin\Controllers\MoviesController.cs" />
     <Compile Include="Areas\Admin\Controllers\SlidesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -195,6 +196,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -1327,23 +1329,15 @@
     <Content Include="assets\web\css\style.css" />
     <Content Include="assets\web\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\web\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="assets\web\images\200121hangsondoong-1684840858-6568-2860-1684841427.jpg" />
-    <Content Include="assets\web\images\background-pg.jpg" />
-    <Content Include="assets\web\images\cread3.jpg" />
     <Content Include="assets\web\images\cta-bg.jpg" />
-    <Content Include="assets\web\images\doramon-pg.jpg" />
-    <Content Include="assets\web\images\et00343051-qbwvjqljye-landscape.jpg" />
     <Content Include="assets\web\images\footer-bg.jpg" />
     <Content Include="assets\web\images\hero-bg.jpg" />
+    <Content Include="assets\web\images\hogwarts-bg.jpg" />
     <Content Include="assets\web\images\img-sp.png" />
-    <Content Include="assets\web\images\it.jpg" />
-    <Content Include="assets\web\images\john2.jpg" />
-    <Content Include="assets\web\images\logo.jpg.png" />
-    <Content Include="assets\web\images\minion-pg.jpg" />
+    <Content Include="assets\web\images\.png" />
+    <Content Include="assets\web\images\moviedetail-bg.jpg" />
     <Content Include="assets\web\images\play-button.png" />
     <Content Include="assets\web\images\service-bg.jpg" />
-    <Content Include="assets\web\images\suzume.jpg" />
-    <Content Include="assets\web\images\tcs.jpg" />
     <Content Include="assets\web\images\top-rated-bg.jpg" />
     <Content Include="assets\web\images\tv-series-bg.jpg" />
     <Content Include="assets\web\js\bootstrap.min.js" />
@@ -1365,7 +1359,6 @@
     <Content Include="assets\web\list-js\jquery.basictable.min.js" />
     <Content Include="assets\web\list-js\jquery.mobile.custom.min.js" />
     <Content Include="assets\web\list-js\jquery.tools.min.js" />
-    <Content Include="assets\web\news-css\bg.jpg" />
     <Content Include="assets\web\news-css\news.css" />
     <Content Include="assets\web\news-css\site.css" />
     <Content Include="assets\web\news-css\style.css" />
@@ -1621,6 +1614,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Admin\Views\Users\" />
     <Folder Include="ImageFileUpload\" />
     <Folder Include="VideoFileUpload\" />
   </ItemGroup>

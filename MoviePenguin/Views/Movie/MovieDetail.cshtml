@@ -69,10 +69,7 @@
                 </button>
 
             </div>
-            <a href="@movie.MovieID" download class="download-btn">
-                <span>Download</span>
-                <ion-icon name="download-outline"></ion-icon>
-            </a>
+        
 
         </div>
 
@@ -82,17 +79,16 @@
 <div class="single-page-agile-main">
     <div class="container">
         <!-- /w3l-medile-movies-grids -->
-
         <div class="single-page-agile-info">
             <!-- /movie-browse-agile -->
             <div class="show-top-grids-w3lagile">
                 <div class="col-sm-8 single-left">
                     <div class="song">
-                        <div class="song-info">
-                            <marquee>Bạn đang xem phim @movie.Name  - Chúc các bạn có những giây phút thư giãn và vui vẻ </marquee>
+                        <div class="slide-song">
+                            <marquee width="1150">Bạn đang xem phim @movie.Name  - Chúc các bạn có những giây phút thư giãn và vui vẻ </marquee>
                         </div>
                         <div class="video-grid-single-page-agileits">
-                            <video src="~/@Model.MovieLink" controls="controls" width="700" height="400"> </video>
+                            <video src="~/@Model.MovieLink" controls="controls" width="1150" height="500"> </video>
                         </div>
                     </div>
                     <div class="all-comments">
@@ -150,8 +146,6 @@
                </li>
             }
             </ul>
-
-
     </div>
 </section>
 

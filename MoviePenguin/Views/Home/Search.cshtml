@@ -21,8 +21,6 @@
                 <div class="container">
                     <div class="agileits-single-top">
                         <ol class="breadcrumb">
-                            
-
                             <li class="active"><a href="#">Trang chủ / Không tìm thấy kết quả với từ khoá "@key"</a></li>
                         </ol>
                     </div>
@@ -45,50 +43,62 @@
                                 <div class="container">
                                     <div class="agileits-single-top">
                                         <ol class="breadcrumb">
-                                            
+
                                             <li class="active"><a href="~/Home/Index">Trang Chủ / Kết quả tìm kiếm với từ khoá "@key"</a></li>
                                         </ol>
                                     </div>
                                 </div>
                             </div>
                             <div class="container">
-                                <div class="browse-inner">
-                                    @foreach (var s in result)
+
+
+
+                                <ul class="movies-list">
+                                    @foreach (var po in result)
                                     {
-                                        <div class="col-md-2 w3l-movie-gride-agile">
-                                            <a href="/Movie/MovieDetail/@s.MovieID" class="hvr-shutter-out-horizontal">
-                                                <img src="~/@s.Image" title="album-name" alt="@s.Name" width="182" height="268" />
-                                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                                            </a>
-                                            <div class="mid-1">
-                                                <div class="w3l-movie-text">
-                                                    <h6><a href="/Movie/MovieDetail/@s.MovieID">@s.Name</a></h6>
+                                        <li>
+                                            <div class="movie-card">
+
+                                                <a href="~/Movie/MovieDetail/@po.MovieID">
+                                                    <figure class="card-banner">
+                                                        <img src="~/@po.Image" alt="Moon Knight movie poster">
+                                                    </figure>
+                                                </a>
+                                                <div class="title-wrapper">
+                                                    <a href="~/Movie/MovieDetail/@po.MovieID">
+                                                        <h3 class="card-title">@po.Name</h3>
+                                                    </a>
+                                                    <time datetime="2022">@po.Year</time>
                                                 </div>
-                                                <div class="mid-2">
+                                                <div class="card-meta">
+                                                    <div class="badge badge-outline">2K</div>
 
-                                                    <p>@s.Year</p>
-                                                    @*@Html.Raw(s.Description)*@
-                                                    <div class="block-stars">
-                                                        <ul class="w3l-ratings">
-                                                            <h5 style="font-size:12px;font-weight:bold;background-color:#E3B71E;border-radius:3px;padding:3px;"> Điểm IMDb: @s.Rate</h5>
-
-                                                        </ul>
+                                                    <div class="duration">
+                                                        <ion-icon name="time-outline"></ion-icon>
+                                                        <time datetime="PT47M">47 min</time>
                                                     </div>
-                                                    <div class="clearfix"></div>
+
+                                                    <div class="rating">
+                                                        <ion-icon name="star"></ion-icon>
+
+                                                        <data>@po.Rate</data>
+                                                    </div>
                                                 </div>
 
                                             </div>
-                                        </div>
+                                        </li>
                                     }
-                                    <div class="clearfix"> </div>
-                                </div>
-                                <!-- /latest-movies1 -->
+
+                                </ul>
 
                             </div>
+                            <!-- /latest-movies1 -->
+
                         </div>
                     </div>
                 </div>
             </div>
+
         }
     }
 }

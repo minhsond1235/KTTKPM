@@ -19,49 +19,61 @@
             <!--/browse-agile-w3ls -->
             <div class="browse-agile-w3ls general-w3ls">
                 <div class="tittle-head">
-                    <h4 class="latest-text">Phim @cate.Name </h4>
+                    <h4 class="latest-text">Phim  </h4>
                     <div class="container">
                         <div class="agileits-single-top">
                             <ol class="breadcrumb">
-                                
-                                <li class="active"><a href="/Movie/CategoryPage/@cate.CategoryID"> Trang Chu / PHIM @cate.Name</a></li>
+                                <li class="active"></li>
                             </ol>
                         </div>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="browse-inner">
-                        @foreach (var s in Model)
-                        {
-                            <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="/Movie/MovieDetail/@s.MovieID" class="hvr-shutter-out-horizontal">
-                                    <img src="~/@s.Image" title="album-name" alt="@s.Name" width="182" height="268" />
-                                    <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                                </a>
-                                <div class="mid-1">
-                                    <div class="w3l-movie-text">
-                                        <h6><a href="/Movie/MovieDetail/@s.MovieID">@s.Name</a></h6>
-                                    </div>
-                                    <div class="mid-2">
 
-                                        <p>@s.Year</p>
-                                        @*@Html.Raw(s.Description)*@
-                                        <div class="block-stars">
-                                            <ul class="w3l-ratings">
-                                                <h5 style="font-size:12px;font-weight:bold;background-color:#E3B71E;border-radius:3px;padding:3px;"> Điểm IMDb: @s.Rate</h5>
-                                            </ul>
+
+                <div class="container">
+
+                    <h2 class="h2 section-title" href="/Movie/CategoryPage/@cate.CategoryID">Phim thể loại @cate.Name</h2>
+
+                    <ul class="movies-list">
+                        @foreach (var po in Model)
+                        {
+                            <li>
+                                <div class="movie-card">
+
+                                    <a href="~/Movie/MovieDetail/@po.MovieID">
+                                        <figure class="card-banner">
+                                            <img src="~/@po.Image" alt="Moon Knight movie poster">
+                                        </figure>
+                                    </a>
+                                    <div class="title-wrapper">
+                                        <a href="~/Movie/MovieDetail/@po.MovieID">
+                                            <h3 class="card-title">@po.Name</h3>
+                                        </a>
+                                        <time datetime="2022">@po.Year</time>
+                                    </div>
+                                    <div class="card-meta">
+                                        <div class="badge badge-outline">2K</div>
+
+                                        <div class="duration">
+                                            <ion-icon name="time-outline"></ion-icon>
+                                            <time datetime="PT47M">47 min</time>
                                         </div>
-                                        <div class="clearfix"></div>
+
+                                        <div class="rating">
+                                            <ion-icon name="star"></ion-icon>
+
+                                            <data>@po.Rate</data>
+                                        </div>
                                     </div>
 
                                 </div>
-                            </div>
+                            </li>
                         }
-                        <div class="clearfix"> </div>
-                    </div>
-                    <!-- /latest-movies1 -->
+
+                    </ul>
 
                 </div>
+
             </div>
             <!--//browse-agile-w3ls -->      
             <div style="text-align:center">
@@ -73,49 +85,7 @@
 
             </div>
 
-        </div>
-      
-        <div class="review-slider">
-            <h4 class="latest-text">
-                Phim mới cập nhật
-            </h4>
-            <div class="container">
-                <div class="w3_agile_banner_bottom_grid">
-                    <div id="owl-demo" class="owl-carousel owl-theme">
-                        @foreach (var pm in listMovieNew)
-                        {
-                            <div class="item">
-                                <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-                                    <a href="/Movie/MovieDetail/@pm.MovieID" class="hvr-shutter-out-horizontal">
-                                         <img src="~/@pm.Image" title="album-name" width="182" height="265"  alt="@pm.Name" />
-                                        <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                                    </a>
-                                    <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                        <div class="w3l-movie-text">
-                                            <h6><a href="/Movie/MovieDetail/@pm.MovieID">@pm.Name</a></h6>
-                                        </div>
-                                        <div class="mid-2 agile_mid_2_home">
-                                            <p>@pm.Year</p>
-                                            <div class="block-stars">
-                                                <ul class="w3l-ratings">
-                                                    <h5 style="font-size:12px;font-weight:bold;background-color:#E3B71E;border-radius:3px;padding:3px;"> Điểm IMDb: @pm.Rate</h5>
-                                                </ul>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                    <div class="ribben">
-                                        <p>NEW</p>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-
-                    </div>
-                </div>
-                <!--body wrapper end-->
-            </div>
-        </div>
+        </div>      
     </div>
     <!-- //w3l-medile-movies-grids -->
 </div>
